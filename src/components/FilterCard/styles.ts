@@ -1,22 +1,25 @@
 import styled from 'styled-components'
 
-type Props = {
-  ativo: boolean
-}
+import { Props } from '.'
 
-export const Card = styled.div<Props>`
+type PropsSimples = Omit<Props, 'counter' | 'subtitulo'>
+
+export const Card = styled.div<PropsSimples>`
+  display: flex;
+  justify-content: space-between;
   padding: 8px;
+  margin-top: 10px;
   border-radius: 8px;
   background-color: ${(props) => (props.ativo ? '#fff' : '#2ecc71')};
   border: 1px solid ${(props) => (props.ativo ? '#27ae60' : '#ecf0f1')};
-  color: ${(props) => (props.ativo ? '#27ae60' : '#95a5a6')};
+  color: ${(props) => (props.ativo ? '#27ae60' : '#fff')};
   cursor: pointer;
 `
 
 export const Counter = styled.div`
   font-size: 12px;
-  font-weight: 700;
-  display: inline;
+  font-weight: bold;
+  margin-top: 2px;
 `
 
 export const Label = styled.div`
