@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { Button } from '../../Styles'
+import variaveis from '../../Styles/variaveis'
 
 export const Card = styled.div`
   padding: 16px;
@@ -7,6 +9,7 @@ export const Card = styled.div`
   background-color: #ecf0f1;
   margin-bottom: 24px;
   align-items: center;
+  width: 70%;
 `
 
 export const Name = styled.h3`
@@ -14,23 +17,24 @@ export const Name = styled.h3`
   font-weight: bold;
 `
 
-export const Email = styled.p`
+export const Email = styled.textarea`
   font-size: 14px;
   color: #95a5a6;
 `
 
-export const Phone = styled.p`
+export const Phone = styled.textarea`
   font-size: 16px;
 `
 
-export const Button = styled.button`
-  font-weight: bold;
-  font-size: 14px;
-  border: none;
-  border-radius: 8px;
-  background-color: #2ecc71;
-  color: #fff;
-  padding: 8px 12px;
-  margin-right: 12px;
-  cursor: pointer;
+export const ActionsArea = styled.div`
+  margin: 0 auto;
+
+  label {
+    margin-left: 24px;
+    margin-right: 8px;
+  }
+`
+
+export const ButtonCancel = styled(Button)`
+  background-color: ${variaveis.pomegranede};
 `
