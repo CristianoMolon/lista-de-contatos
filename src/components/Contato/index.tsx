@@ -1,20 +1,22 @@
 import { useState } from 'react'
+import { IoMdStar } from 'react-icons/io'
+import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
 import { Button } from '../../Styles'
-import * as enums from '../../Utils/Contato'
+import { remover } from '../../Store/reducers/contatos'
+import contatoClass from '../../Models/Contato'
 
-type Props = {
-  name: string
-  email: string
-  phone: string
-  status: enums.Status
-}
+type Props = contatoClass
 
-const Contato = ({ name, email, phone }: Props) => {
+const Contato = ({ name, email, phone, id, status }: Props) => {
+  const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false)
   return (
     <S.Card>
+      <S.Favorite parametro="status" status={status}>
+        {<IoMdStar />}
+      </S.Favorite>
       <S.Name>{name}</S.Name>
       <S.Email>{email}</S.Email>
       <S.Phone>{phone}</S.Phone>
@@ -29,11 +31,11 @@ const Contato = ({ name, email, phone }: Props) => {
         ) : (
           <>
             <Button onClick={() => setEstaEditando(true)}>Editar</Button>
-            <S.ButtonCancel>Remover</S.ButtonCancel>
+            <S.ButtonCancel onClick={() => dispatch(remover(id))}>
+              Remover
+            </S.ButtonCancel>
           </>
         )}
-        <label htmlFor="favorito">Favorito</label>
-        <input id="favorito" type="checkbox" />
       </S.ActionsArea>
     </S.Card>
   )

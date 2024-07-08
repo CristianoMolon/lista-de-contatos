@@ -4,5 +4,6 @@ export default {
   cloud: '#ecf0f1',
   concrete: '#95a5a6',
   asbestos: '#7f8c8d',
-  pomegranede: '#c0392b'
+  pomegranede: '#c0392b',
+  sunflower: '#f1c40f'
 }

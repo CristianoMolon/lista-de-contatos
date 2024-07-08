@@ -27,4 +27,15 @@ export const Button = styled.button`
   cursor: pointer;
 `
 
+export const Textarea = styled.textarea`
+  text-align: center;
+  padding: 8px;
+  height: 38px;
+  width: 300px;
+  resize: none;
+  font-size: 14px;
+  border: none;
+  background-color: transparent;
+`
+
 export default EstiloGlobal

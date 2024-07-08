@@ -1,6 +1,20 @@
 import styled from 'styled-components'
-import { Button } from '../../Styles'
+import { Button, Textarea } from '../../Styles'
 import variaveis from '../../Styles/variaveis'
+import * as enums from '../../Utils/Contato'
+
+type FavProps = {
+  status?: enums.Status
+  parametro: 'status'
+}
+
+function returnColor(props: FavProps): string {
+  if (props.parametro === 'status') {
+    if (props.status === enums.Status.NORMAL) return variaveis.asbestos
+    if (props.status === enums.Status.FAVORITO) return variaveis.sunflower
+  }
+  return '#777'
+}
 
 export const Card = styled.div`
   padding: 16px;
@@ -9,7 +23,13 @@ export const Card = styled.div`
   background-color: #ecf0f1;
   margin-bottom: 24px;
   align-items: center;
-  width: 70%;
+`
+
+export const Favorite = styled.button<FavProps>`
+  border: none;
+  font-size: 18px;
+  color: ${(props) => returnColor(props)};
+  cursor: pointer;
 `
 
 export const Name = styled.h3`
@@ -17,22 +37,16 @@ export const Name = styled.h3`
   font-weight: bold;
 `
 
-export const Email = styled.textarea`
-  font-size: 14px;
+export const Email = styled(Textarea)`
   color: #95a5a6;
 `
 
-export const Phone = styled.textarea`
+export const Phone = styled(Textarea)`
   font-size: 16px;
 `
 
 export const ActionsArea = styled.div`
   margin: 0 auto;
-
-  label {
-    margin-left: 24px;
-    margin-right: 8px;
-  }
 `
 
 export const ButtonCancel = styled(Button)`
