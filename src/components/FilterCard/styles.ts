@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import { Props } from '.'
+type Props = {
+  ativo: boolean
+}
 
-type PropsSimples = Omit<Props, 'counter' | 'subtitulo'>
-
-export const Card = styled.div<PropsSimples>`
+export const Card = styled.div<Props>`
   display: flex;
   justify-content: space-between;
   padding: 8px;
