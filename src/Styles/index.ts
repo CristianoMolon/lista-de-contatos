@@ -31,11 +31,25 @@ export const Textarea = styled.textarea`
   text-align: center;
   padding: 8px;
   height: 38px;
-  width: 300px;
+  width: 240px;
   resize: none;
   font-size: 14px;
   border: none;
   background-color: transparent;
+`
+
+export const ListContainer = styled.div`
+  padding: 0 40px;
+  padding-top: 40px;
+  height: 90vh;
+  overflow-y: scroll;
+`
+export const Input = styled.input`
+  padding: 8px;
+  border: 2px solid #000;
+  color: #7f8c8d;
+  border-radius: 8px;
+  width: 100%;
 `
 
 export default EstiloGlobal

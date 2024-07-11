@@ -19,7 +19,7 @@ function returnColor(props: FavProps): string {
 export const Card = styled.div`
   padding: 16px;
   display: flex;
-  gap: 32px;
+  gap: 24px;
   background-color: #ecf0f1;
   margin-bottom: 24px;
   align-items: center;
@@ -32,7 +32,7 @@ export const Favorite = styled.button<FavProps>`
   cursor: pointer;
 `
 
-export const Name = styled.h3`
+export const Name = styled(Textarea)`
   font-size: 16px;
   font-weight: bold;
 `
@@ -46,6 +46,7 @@ export const Phone = styled(Textarea)`
 `
 
 export const ActionsArea = styled.div`
+  display: inline;
   margin: 0 auto;
 `
 

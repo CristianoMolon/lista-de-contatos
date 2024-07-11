@@ -10,7 +10,7 @@ import contatoClass from '../../Models/Contato'
 type Props = contatoClass
 
 const Contato = ({
-  name,
+  name: nameOriginal,
   email: emailOriginal,
   phone: phoneOriginal,
   id,
@@ -18,8 +18,15 @@ const Contato = ({
 }: Props) => {
   const dispatch = useDispatch()
   const [estaEditando, setEstaEditando] = useState(false)
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
+
+  useEffect(() => {
+    if (nameOriginal.length > 0) {
+      setName(nameOriginal)
+    }
+  }, [nameOriginal])
 
   useEffect(() => {
     if (emailOriginal.length > 0) {
@@ -35,6 +42,7 @@ const Contato = ({
 
   function cancelEdit() {
     setEstaEditando(false)
+    setName(nameOriginal)
     setEmail(emailOriginal)
     setPhone(phoneOriginal)
   }
@@ -44,7 +52,14 @@ const Contato = ({
       <S.Favorite parametro="status" status={status}>
         {<IoMdStar />}
       </S.Favorite>
-      <S.Name>{name}</S.Name>
+      <S.Name
+        placeholder="Nome"
+        disabled={!estaEditando}
+        value={name}
+        onChange={(evento) => setName(evento.target.value)}
+      >
+        {name}
+      </S.Name>
       <S.Email
         placeholder="Email"
         disabled={!estaEditando}

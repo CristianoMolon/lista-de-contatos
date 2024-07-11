@@ -30,6 +30,7 @@ const Sidebar = () => {
             criterio="status"
             subtitulo="favorito"
           />
+          <S.AddCard to="/novo">Novo Contato</S.AddCard>
         </S.Filter>
       </div>
     </S.Aside>

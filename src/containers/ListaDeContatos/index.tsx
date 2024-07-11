@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
 
 import Contato from '../../components/Contato'
-import { Container } from './styles'
 import { RootReducer } from '../../Store'
+import { ListContainer } from '../../Styles'
 
 const ListaDeContatos = () => {
   const { itens } = useSelector((state: RootReducer) => state.contatos)
@@ -30,7 +30,7 @@ const ListaDeContatos = () => {
   const contatos = filterContatos()
 
   return (
-    <Container>
+    <ListContainer>
       <ul>
         {contatos.map((c) => (
           <li key={c.name}>
@@ -44,7 +44,7 @@ const ListaDeContatos = () => {
           </li>
         ))}
       </ul>
-    </Container>
+    </ListContainer>
   )
 }
 
