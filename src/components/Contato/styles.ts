@@ -25,7 +25,7 @@ export const Card = styled.div`
   align-items: center;
 `
 
-export const Favorite = styled.button<FavProps>`
+export const Favorite = styled.span<FavProps>`
   border: none;
   font-size: 18px;
   color: ${(props) => returnColor(props)};

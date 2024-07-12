@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 
 import { Button, Input, ListContainer } from '../../Styles'
 import * as enums from '../../Utils/Contato'
-import Contato from '../../Models/Contato'
 import { cadastrar } from '../../Store/reducers/contatos'
 import { Form } from './styles'
 
@@ -18,9 +17,8 @@ const NovoContato = () => {
 
   const cadastrarContato = (event: FormEvent) => {
     event.preventDefault()
-    const contatoAdd = new Contato(name, email, phone, enums.Status.NORMAL, 9)
 
-    dispatch(cadastrar(contatoAdd))
+    dispatch(cadastrar({ name, email, phone, status: enums.Status.NORMAL }))
     navigate('/')
   }
 

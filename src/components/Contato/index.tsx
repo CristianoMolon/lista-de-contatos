@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, ChangeEvent } from 'react'
 import { IoMdStar } from 'react-icons/io'
 import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
 import { Button } from '../../Styles'
-import { remover, editar } from '../../Store/reducers/contatos'
+import { remover, editar, favoritar } from '../../Store/reducers/contatos'
 import contatoClass from '../../Models/Contato'
+import * as enums from '../../Utils/Contato'
 
 type Props = contatoClass
 
@@ -47,11 +48,28 @@ const Contato = ({
     setPhone(phoneOriginal)
   }
 
+  function favoritarContato(event: ChangeEvent<HTMLInputElement>) {
+    dispatch(
+      favoritar({
+        id,
+        ending: event.target.checked
+      })
+    )
+  }
+
   return (
     <S.Card>
-      <S.Favorite parametro="status" status={status}>
-        {<IoMdStar />}
-      </S.Favorite>
+      <div>
+        <input
+          type="checkbox"
+          id={name}
+          checked={status === enums.Status.FAVORITO}
+          onChange={favoritarContato}
+        />
+        <S.Favorite parametro="status" status={status}>
+          {<IoMdStar />}
+        </S.Favorite>
+      </div>
       <S.Name
         placeholder="Nome"
         disabled={!estaEditando}

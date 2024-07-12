@@ -3,7 +3,7 @@ import Sidebar from '../../containers/Sidebar'
 
 const New = () => (
   <>
-    <Sidebar />
+    <Sidebar showFilters={false} />
     <NovoContato />
   </>
 )

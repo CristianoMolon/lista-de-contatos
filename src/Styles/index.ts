@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import variaveis from './variaveis'
 
 const EstiloGlobal = createGlobalStyle`
   * {
@@ -50,6 +51,11 @@ export const Input = styled.input`
   color: #7f8c8d;
   border-radius: 8px;
   width: 100%;
+`
+
+export const ButtonBack = styled(Button)`
+  background-color: ${variaveis.cloud};
+  color: ${variaveis.emerald};
 `
 
 export default EstiloGlobal
